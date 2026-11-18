@@ -210,7 +210,7 @@ backend/
 
 ## 📹 Enlaces de Entrega
 
-- **Repositorio de Código**: `https://github.com/<tu-usuario>/food-store-tpi` *(Reemplazar con la URL final del repositorio)*
+- **Repositorio de Código**: https://github.com/Diexvel/tpi-food-store
 - **Video Demostrativo**: `https://youtu.be/<video-id>` *(Reemplazar con el enlace a YouTube o Loom del video explicativo)*
 
 ---
