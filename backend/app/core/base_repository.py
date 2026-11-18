@@ -1,0 +1,26 @@
+from typing import Generic, List, Optional, Type, TypeVar
+from sqlmodel import Session, select
+
+T = TypeVar("T")
+
+
+class BaseRepository(Generic[T]):
+    def __init__(self, session: Session, model: Type[T]):
+        self.session = session
+        self.model = model
+
+    def get_by_id(self, id: int) -> Optional[T]:
+        return self.session.get(self.model, id)
+
+    def get_all(self, skip: int = 0, limit: int = 100) -> List[T]:
+        statement = select(self.model).offset(skip).limit(limit)
+        return list(self.session.exec(statement).all())
+
+    def add(self, entity: T) -> T:
+        self.session.add(entity)
+        self.session.flush()
+        return entity
+
+    def delete(self, entity: T) -> None:
+        self.session.delete(entity)
+        self.session.flush()
