@@ -19,12 +19,10 @@ import { useAuthStore } from '../../../store/authStore';
 const colHelper = createColumnHelper<Usuario>();
 
 export const AdminUsuariosPage: React.FC = () => {
-  const { data, isLoading, isError, refetch } = useUsuarios({ limit: 100 });
+  const { data: usuarios = [], isLoading, isError, refetch } = useUsuarios();
   const activarMut = useActivarUsuario();
   const desactivarMut = useDesactivarUsuario();
   const usuarioActual = useAuthStore((s) => s.usuario);
-
-  const usuarios = data?.items ?? [];
 
   const handleActivar = async (u: Usuario) => {
     try {

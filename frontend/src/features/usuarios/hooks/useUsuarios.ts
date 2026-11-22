@@ -3,10 +3,10 @@ import { usuariosApi } from '../api/usuariosApi';
 
 export const USUARIOS_QUERY_KEY = ['usuarios'];
 
-export function useUsuarios(params?: { skip?: number; limit?: number }) {
+export function useUsuarios() {
   return useQuery({
-    queryKey: [...USUARIOS_QUERY_KEY, params],
-    queryFn: () => usuariosApi.getUsuarios(params),
+    queryKey: USUARIOS_QUERY_KEY,
+    queryFn: usuariosApi.getUsuarios,
   });
 }
 
