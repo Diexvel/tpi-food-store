@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 from typing import List, Optional, TYPE_CHECKING
+from sqlalchemy import DateTime
 from sqlmodel import Field, Relationship, SQLModel
 
 if TYPE_CHECKING:
@@ -18,6 +19,7 @@ class Usuario(SQLModel, table=True):
     disabled: bool = Field(default=False, nullable=False)
     created_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
+        sa_type=DateTime(timezone=True),
         nullable=False,
     )
 

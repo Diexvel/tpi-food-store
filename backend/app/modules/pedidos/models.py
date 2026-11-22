@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 from typing import List, Optional, TYPE_CHECKING
+from sqlalchemy import DateTime
 from sqlmodel import Field, Relationship, SQLModel
 
 if TYPE_CHECKING:
@@ -19,10 +20,12 @@ class Pedido(SQLModel, table=True):
     total: float = Field(default=0.0, nullable=False)
     created_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
+        sa_type=DateTime(timezone=True),
         nullable=False,
     )
     updated_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
+        sa_type=DateTime(timezone=True),
         nullable=False,
     )
 

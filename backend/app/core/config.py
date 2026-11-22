@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    DATABASE_URL: str = "sqlite:///./foodstore.db"
+    DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/foodstore_db"
     SECRET_KEY: str = "cambiar-esta-clave-de-al-menos-32-caracteres-super-segura-1234"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30

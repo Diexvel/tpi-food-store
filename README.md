@@ -111,25 +111,34 @@ backend/
    pip install -r requirements.txt
    ```
 
-4. Configurar las variables de entorno:
-   Copiar `.env.example` a `.env` (los valores por defecto funcionan directamente con SQLite):
+4. Configurar las variables de entorno y Base de Datos (PostgreSQL):
+   Copiar `.env.example` a `.env`:
    ```bash
    cp .env.example .env
    ```
    *Contenido de `.env`:*
    ```ini
-   DATABASE_URL=sqlite:///./foodstore.db
+   DATABASE_URL=postgresql://postgres:postgres@localhost:5432/foodstore_db
    SECRET_KEY=cambiar-esta-clave-de-al-menos-32-caracteres-super-segura-1234
    ALGORITHM=HS256
    ACCESS_TOKEN_EXPIRE_MINUTES=30
    FRONTEND_ORIGIN=http://localhost:5173
    ```
 
+   > **💡 Tip (Levantar PostgreSQL con Docker en un solo comando):**
+   > En la raíz del proyecto se incluye un `docker-compose.yml`:
+   > ```bash
+   > docker compose up -d
+   > ```
+   > Esto iniciará un contenedor PostgreSQL 16 listo en el puerto 5432 con la base `foodstore_db`.
+   >
+   > *(Opcional: Si deseas usar SQLite localmente, simplemente descomenta `DATABASE_URL=sqlite:///./foodstore.db` en el archivo `.env`).*
+
 5. Inicializar la base de datos y cargar los datos iniciales (Seed):
    ```bash
    python -m app.db.seed
    ```
-   *Esto creará las tablas, el usuario administrador y productos con stock en 4 categorías.*
+   *Esto creará automáticamente las tablas en PostgreSQL, el usuario administrador y productos con stock en 4 categorías.*
 
 6. Ejecutar la suite de pruebas unitarias:
    ```bash
