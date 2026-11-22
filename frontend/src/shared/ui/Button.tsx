@@ -18,20 +18,25 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer';
+    'inline-flex items-center justify-center font-semibold rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer tracking-tight';
 
   const variants = {
-    primary: 'bg-amber-600 hover:bg-amber-700 text-white focus:ring-amber-500 shadow-sm hover:shadow active:scale-[0.99]',
-    secondary: 'bg-stone-800 hover:bg-stone-900 text-white focus:ring-stone-600 shadow-sm',
-    danger: 'bg-rose-600 hover:bg-rose-700 text-white focus:ring-rose-500 shadow-sm',
-    outline: 'border border-stone-300 hover:bg-stone-100 text-stone-700 focus:ring-stone-400',
-    ghost: 'hover:bg-stone-100 text-stone-700 focus:ring-stone-300',
+    primary:
+      'bg-[#B84A1C] hover:bg-[#A23F15] active:bg-[#8D350F] text-white focus:ring-[#B84A1C]/50 shadow-amber-pill active:scale-[0.98]',
+    secondary:
+      'bg-[#FDFBF7] hover:bg-[#F3EDE2] text-[#1F1E1D] border border-[#E2D6C5] focus:ring-[#B84A1C]/30 shadow-xs active:scale-[0.98]',
+    danger:
+      'bg-[#BF3E34] hover:bg-[#A9342B] text-white focus:ring-[#BF3E34]/40 shadow-xs active:scale-[0.98]',
+    outline:
+      'border border-[#DECFC0] hover:bg-[#F5EDE3] text-[#2D2A26] focus:ring-[#B84A1C]/30',
+    ghost:
+      'hover:bg-[#EFE6DA] text-[#6E6862] hover:text-[#1F1E1D] focus:ring-[#B84A1C]/20',
   };
 
   const sizes = {
-    sm: 'text-xs px-2.5 py-1.5 gap-1.5',
-    md: 'text-sm px-4 py-2.5 gap-2',
-    lg: 'text-base px-5 py-3 gap-2.5',
+    sm: 'text-xs px-3.5 py-1.5 gap-1.5 rounded-xl',
+    md: 'text-sm px-5 py-2.5 gap-2 rounded-2xl',
+    lg: 'text-base px-6 py-3.5 gap-2.5 rounded-2xl',
   };
 
   return (

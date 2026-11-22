@@ -7,7 +7,6 @@ import { CardSkeleton } from '../../../shared/components/Skeleton';
 import { EstadoVacio } from '../../../shared/components/EstadoVacio';
 import { EstadoError } from '../../../shared/components/EstadoError';
 import { Paginacion } from '../../../shared/components/Paginacion';
-import { Input } from '../../../shared/ui/Input';
 
 const PAGE_SIZE = 8;
 
@@ -54,128 +53,155 @@ export const CatalogoPage: React.FC = () => {
   const items = productosData?.items ?? [];
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      {/* Banner de Bienvenida */}
-      <div className="relative rounded-3xl bg-linear-to-r from-amber-600 to-amber-700 p-8 sm:p-12 text-white shadow-sm overflow-hidden">
+    <div className="space-y-10 animate-fade-in">
+      {/* Banner Hero estilo AMBER / INTERFACE */}
+      <div className="relative rounded-[32px] bg-[#FAF5ED] border border-[#EAE1D3] p-8 sm:p-12 shadow-amber-soft overflow-hidden">
+        {/* Decoración abstracta suave */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F3ECE2] rounded-full filter blur-3xl opacity-60 -mr-20 -mt-20 pointer-events-none"></div>
+        <div className="absolute bottom-0 right-20 w-64 h-64 bg-[#FDEEE2] rounded-full filter blur-2xl opacity-50 -mb-20 pointer-events-none"></div>
+
         <div className="relative z-10 max-w-2xl">
-          <span className="bg-amber-500/30 backdrop-blur-xs text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">
-            ¡Pedí fácil, rápido y caliente! 🛵
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
-            Nuestras especialidades gastronómicas
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#B84A1C] bg-[#FBECE1] border border-[#F2D7C3] px-3 py-1 rounded-full">
+              CUISINE DESIGN MOODBOARD
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-black text-[#1F1E1D] tracking-tight leading-tight">
+            AMBER <span className="text-[#B84A1C] font-light">/</span> FOOD
           </h1>
-          <p className="text-amber-100 text-sm sm:text-base">
-            Descubrí nuestras deliciosas hamburguesas artesanales, pizzas napolitanas al horno, bebidas y postres caseros listos para disfrutar.
+          <p className="text-base sm:text-lg text-[#6E6862] mt-3 font-normal leading-relaxed">
+            A warmer culinary rhythm. Hamburguesas artesanales, pizzas napolitanas al horno de barro y postres gourmet preparados con dedicación.
           </p>
-        </div>
-        <div className="absolute right-0 bottom-0 text-9xl opacity-15 select-none pointer-events-none translate-x-6 translate-y-6">
-          🍔
+
+          <div className="flex items-center gap-4 mt-6 text-xs text-[#8C827A] font-medium">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#B84A1C]"></span>
+              Ingredientes Frescos
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#E88C4D]"></span>
+              Elaboración Diaria
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
+              Envío Rápido
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* Barra de Filtros y Búsqueda */}
-      <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row items-center gap-4 justify-between">
-          {/* Input de Búsqueda */}
+      {/* Barra de Filtros y Búsqueda estilo AMBER */}
+      <div className="space-y-5">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+          {/* Input de Búsqueda pastilla pillowy */}
           <div className="relative w-full sm:max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
-            <Input
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#8C827A]">
+              <Search className="h-4 w-4" />
+            </div>
+            <input
               type="text"
-              placeholder="Buscar por nombre (ej. Doble Bacon, Margherita...)"
+              placeholder="Buscar por nombre (ej. burger, margherita)..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="pl-10 pr-9"
+              className="w-full pl-11 pr-11 py-3.5 rounded-full border border-[#DECFC0] bg-[#FDFBF7] text-[#1F1E1D] placeholder-[#A49C94] text-sm shadow-ivory-inset transition-all focus:outline-none focus:ring-2 focus:ring-[#B84A1C]/20 focus:border-[#B84A1C]"
             />
-            {searchTerm && (
+            {searchTerm ? (
               <button
-                onClick={() => {
-                  setSearchTerm('');
-                  setSkip(0);
-                }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 p-1 cursor-pointer"
-                title="Limpiar búsqueda"
+                onClick={() => setSearchTerm('')}
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#8C827A] hover:text-[#1F1E1D] cursor-pointer"
               >
-                <X className="w-4 h-4" />
+                <X className="h-4 w-4" />
               </button>
+            ) : (
+              <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-[#A49C94]">
+                <SlidersHorizontal className="h-4 w-4" />
+              </div>
             )}
           </div>
 
-          {/* Información de resultados */}
-          <div className="text-xs text-stone-500 font-medium self-end sm:self-center">
-            Total en catálogo: <span className="font-bold text-stone-800">{total}</span>
+          {/* Contador de resultados */}
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#8C827A] self-end sm:self-center">
+            {isLoading ? 'Buscando...' : `${total} ${total === 1 ? 'producto' : 'productos'}`}
           </div>
         </div>
 
-        {/* Píldoras de Categorías */}
+        {/* Categorías estilo Pastillas / Moodboard Tabs */}
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-          <span className="text-xs text-stone-400 font-medium mr-1 flex items-center gap-1 shrink-0">
-            <SlidersHorizontal className="w-3.5 h-3.5" />
-            Categoría:
-          </span>
-
           <button
             onClick={() => handleCategoriaClick(undefined)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold shrink-0 transition-colors cursor-pointer ${
+            className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-tight transition-all duration-200 shrink-0 cursor-pointer ${
               categoriaId === undefined
-                ? 'bg-amber-600 text-white shadow-xs'
-                : 'bg-white border border-stone-200 text-stone-700 hover:bg-stone-100'
+                ? 'bg-[#B84A1C] text-white shadow-amber-pill'
+                : 'bg-[#FDFBF7] text-[#6E6862] border border-[#DECFC0] hover:bg-[#F3ECE2] hover:text-[#1F1E1D]'
             }`}
           >
-            Todas
+            Todas las comidas
           </button>
-
-          {categorias.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => handleCategoriaClick(cat.id)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold shrink-0 transition-colors cursor-pointer ${
-                categoriaId === cat.id
-                  ? 'bg-amber-600 text-white shadow-xs'
-                  : 'bg-white border border-stone-200 text-stone-700 hover:bg-stone-100'
-              }`}
-            >
-              {cat.nombre}
-            </button>
-          ))}
+          {categorias.map((cat) => {
+            const isSelected = categoriaId === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => handleCategoriaClick(cat.id)}
+                className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-tight transition-all duration-200 shrink-0 cursor-pointer ${
+                  isSelected
+                    ? 'bg-[#B84A1C] text-white shadow-amber-pill'
+                    : 'bg-[#FDFBF7] text-[#6E6862] border border-[#DECFC0] hover:bg-[#F3ECE2] hover:text-[#1F1E1D]'
+                }`}
+              >
+                {cat.nombre}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Estados de Carga, Error o Cuadrícula de Productos */}
+      {/* Grid de Productos */}
       {isLoading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {Array.from({ length: 8 }).map((_, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {Array.from({ length: PAGE_SIZE }).map((_, i) => (
             <CardSkeleton key={i} />
           ))}
         </div>
       ) : isError ? (
         <EstadoError
-          title="No pudimos cargar el catálogo"
-          message={error instanceof Error ? error.message : 'Error al conectar con el servidor'}
-          onRetry={() => refetch()}
+          title="Error al cargar productos"
+          message={error instanceof Error ? error.message : 'No se pudo cargar el catálogo.'}
+          onRetry={() => {
+            void refetch();
+          }}
         />
       ) : items.length === 0 ? (
         <EstadoVacio
-          title="No se encontraron productos"
-          description="Intenta buscar con otro término o seleccionando una categoría diferente."
+          title="No encontramos productos"
+          description="Intenta cambiando el término de búsqueda o seleccionando otra categoría."
           actionText="Limpiar filtros"
           onAction={limpiarFiltros}
         />
       ) : (
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {items.map((prod) => (
               <ProductoCard key={prod.id} producto={prod} />
             ))}
           </div>
 
           {/* Paginación en Servidor */}
-          <Paginacion
-            total={total}
-            skip={skip}
-            limit={PAGE_SIZE}
-            onPageChange={(newSkip) => setSkip(newSkip)}
-          />
-        </div>
+          {total > PAGE_SIZE && (
+            <div className="pt-6 border-t border-[#EAE1D3] flex justify-center">
+              <Paginacion
+                skip={skip}
+                limit={PAGE_SIZE}
+                total={total}
+                onPageChange={(newSkip) => {
+                  setSkip(newSkip);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              />
+            </div>
+          )}
+        </>
       )}
     </div>
   );

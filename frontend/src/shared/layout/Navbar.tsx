@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingBag, User as UserIcon, LogOut, Shield, UtensilsCrossed } from 'lucide-react';
+import { ShoppingBag, UtensilsCrossed, Shield, LogOut } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { useCartStore } from '../../store/cartStore';
 import { Button } from '../ui/Button';
@@ -18,25 +18,31 @@ export const Navbar: React.FC = () => {
   const isAdmin = usuario?.role === 'admin';
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200">
+    <header className="sticky top-0 z-40 bg-[#F6F1EA]/90 backdrop-blur-md border-b border-[#EAE1D3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center text-white shadow-xs group-hover:bg-amber-700 transition-colors">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo estilo AMBER / INTERFACE */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-2xl bg-[#B84A1C] flex items-center justify-center text-white shadow-amber-pill group-hover:bg-[#A23F15] transition-all duration-200">
               <UtensilsCrossed className="w-5 h-5" />
             </div>
             <div>
-              <span className="font-bold text-lg text-stone-900 tracking-tight block leading-tight">Food Store</span>
-              <span className="text-[10px] text-amber-700 font-semibold uppercase tracking-wider block">Sabores Gourmet</span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-extrabold text-lg text-[#1F1E1D] tracking-tight block leading-tight">
+                  AMBER <span className="text-[#B84A1C] font-light">/</span> FOOD
+                </span>
+              </div>
+              <span className="text-[10px] text-[#B84A1C] font-bold uppercase tracking-widest block">
+                A warmer culinary rhythm
+              </span>
             </div>
           </Link>
 
           {/* Links Principales */}
-          <nav className="hidden md:flex items-center gap-1.5">
+          <nav className="hidden md:flex items-center gap-2">
             <Link
               to="/"
-              className="px-3.5 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+              className="px-4 py-2 rounded-full text-sm font-semibold text-[#6E6862] hover:text-[#1F1E1D] hover:bg-[#EFE6DA] transition-colors"
             >
               Catálogo
             </Link>
@@ -44,7 +50,7 @@ export const Navbar: React.FC = () => {
             {usuario && (
               <Link
                 to="/mis-pedidos"
-                className="px-3.5 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+                className="px-4 py-2 rounded-full text-sm font-semibold text-[#6E6862] hover:text-[#1F1E1D] hover:bg-[#EFE6DA] transition-colors"
               >
                 Mis Pedidos
               </Link>
@@ -53,9 +59,9 @@ export const Navbar: React.FC = () => {
             {isAdmin && (
               <Link
                 to="/admin/resumen"
-                className="flex items-center gap-1 px-3.5 py-2 rounded-xl text-sm font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 transition-colors"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold text-[#B84A1C] bg-[#FBECE1] border border-[#F2D7C3] hover:bg-[#F8DECB] transition-colors"
               >
-                <Shield className="w-4 h-4 text-amber-600" />
+                <Shield className="w-4 h-4 text-[#B84A1C]" />
                 Panel Admin
               </Link>
             )}
@@ -66,12 +72,12 @@ export const Navbar: React.FC = () => {
             {/* Botón Carrito */}
             <Link
               to="/carrito"
-              className="relative p-2.5 rounded-xl border border-stone-200 text-stone-700 hover:bg-stone-100 transition-colors flex items-center justify-center"
+              className="relative p-2.5 rounded-2xl border border-[#DECFC0] bg-[#FDFBF7] text-[#1F1E1D] hover:bg-[#F3ECE2] transition-colors flex items-center justify-center shadow-xs"
               aria-label="Ver carrito"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-5 h-5 text-[#B84A1C]" />
               {totalItems > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-amber-600 text-white text-xs font-bold flex items-center justify-center shadow-xs animate-scale-up">
+                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#B84A1C] text-white text-[11px] font-bold flex items-center justify-center shadow-amber-pill animate-scale-up">
                   {totalItems}
                 </span>
               )}
@@ -80,17 +86,17 @@ export const Navbar: React.FC = () => {
             {usuario ? (
               <div className="flex items-center gap-3">
                 <div className="hidden sm:flex flex-col text-right">
-                  <span className="text-xs font-bold text-stone-900">{usuario.full_name}</span>
-                  <span className="text-[10px] text-stone-500 capitalize">{usuario.role}</span>
+                  <span className="text-xs font-bold text-[#1F1E1D]">{usuario.full_name}</span>
+                  <span className="text-[10px] text-[#8C827A] capitalize font-medium">{usuario.role}</span>
                 </div>
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   size="sm"
                   onClick={handleLogout}
-                  className="text-stone-600 hover:text-rose-600 hover:border-rose-300"
+                  className="text-[#6E6862] hover:text-[#B84A1C] hover:border-[#F2D7C3]"
                   title="Cerrar sesión"
                 >
-                  <LogOut className="w-4 h-4" />
+                  <LogOut className="w-4 h-4 mr-1" />
                   <span className="hidden sm:inline">Salir</span>
                 </Button>
               </div>
@@ -98,13 +104,12 @@ export const Navbar: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Link to="/login">
                   <Button variant="ghost" size="sm">
-                    <UserIcon className="w-4 h-4" />
                     Ingresar
                   </Button>
                 </Link>
-                <Link to="/register" className="hidden sm:inline-block">
+                <Link to="/register">
                   <Button variant="primary" size="sm">
-                    Registrarse
+                    Crear Cuenta
                   </Button>
                 </Link>
               </div>

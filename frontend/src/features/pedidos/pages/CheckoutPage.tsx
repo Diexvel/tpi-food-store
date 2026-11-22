@@ -151,10 +151,10 @@ export const CheckoutPage: React.FC = () => {
                   {(field) => (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                       <label
-                        className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
+                        className={`flex items-center gap-3 p-4 rounded-2xl border cursor-pointer transition-all ${
                           field.state.value === 'EFECTIVO'
-                            ? 'border-amber-600 bg-amber-50/40 ring-1 ring-amber-600/30'
-                            : 'border-stone-200 hover:border-stone-300 bg-white'
+                            ? 'border-[#B84A1C] bg-[#FBECE1] ring-1 ring-[#B84A1C]/30'
+                            : 'border-[#DECFC0] hover:border-[#DECDBA] bg-[#FDFBF7]'
                         }`}
                       >
                         <input
@@ -163,22 +163,22 @@ export const CheckoutPage: React.FC = () => {
                           value="EFECTIVO"
                           checked={field.state.value === 'EFECTIVO'}
                           onChange={() => field.handleChange('EFECTIVO')}
-                          className="text-amber-600 focus:ring-amber-500"
+                          className="text-[#B84A1C] focus:ring-[#B84A1C]"
                         />
                         <div className="flex items-center gap-2.5">
-                          <Banknote className="w-5 h-5 text-emerald-600" />
+                          <Banknote className="w-5 h-5 text-emerald-700" />
                           <div>
-                            <span className="text-sm font-bold text-stone-900 block">Efectivo</span>
-                            <span className="text-xs text-stone-500">Pagas al recibir tu pedido</span>
+                            <span className="text-sm font-bold text-[#1F1E1D] block">Efectivo</span>
+                            <span className="text-xs text-[#6E6862]">Pagas al recibir tu pedido</span>
                           </div>
                         </div>
                       </label>
 
                       <label
-                        className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
+                        className={`flex items-center gap-3 p-4 rounded-2xl border cursor-pointer transition-all ${
                           field.state.value === 'TRANSFERENCIA'
-                            ? 'border-amber-600 bg-amber-50/40 ring-1 ring-amber-600/30'
-                            : 'border-stone-200 hover:border-stone-300 bg-white'
+                            ? 'border-[#B84A1C] bg-[#FBECE1] ring-1 ring-[#B84A1C]/30'
+                            : 'border-[#DECFC0] hover:border-[#DECDBA] bg-[#FDFBF7]'
                         }`}
                       >
                         <input
@@ -187,13 +187,13 @@ export const CheckoutPage: React.FC = () => {
                           value="TRANSFERENCIA"
                           checked={field.state.value === 'TRANSFERENCIA'}
                           onChange={() => field.handleChange('TRANSFERENCIA')}
-                          className="text-amber-600 focus:ring-amber-500"
+                          className="text-[#B84A1C] focus:ring-[#B84A1C]"
                         />
                         <div className="flex items-center gap-2.5">
-                          <CreditCard className="w-5 h-5 text-blue-600" />
+                          <CreditCard className="w-5 h-5 text-[#B84A1C]" />
                           <div>
-                            <span className="text-sm font-bold text-stone-900 block">Transferencia</span>
-                            <span className="text-xs text-stone-500">Alias o CBU bancario</span>
+                            <span className="text-sm font-bold text-[#1F1E1D] block">Transferencia</span>
+                            <span className="text-xs text-[#6E6862]">Alias o CBU bancario</span>
                           </div>
                         </div>
                       </label>
@@ -217,7 +217,7 @@ export const CheckoutPage: React.FC = () => {
                       value={field.state.value}
                       onChange={(e) => field.handleChange(e.target.value)}
                       onBlur={field.handleBlur}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                      className="w-full px-4 py-3 rounded-2xl border border-[#DECFC0] bg-[#FDFBF7] text-[#1F1E1D] placeholder-[#A49C94] text-sm shadow-ivory-inset focus:outline-none focus:ring-2 focus:ring-[#B84A1C]/20 focus:border-[#B84A1C]"
                     />
                   )}
                 </form.Field>

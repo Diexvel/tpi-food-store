@@ -45,19 +45,19 @@ export const Modal: React.FC<ModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-stone-900/40 backdrop-blur-xs transition-opacity animate-fade-in"
+        className="fixed inset-0 bg-[#1F1E1D]/40 backdrop-blur-xs transition-opacity animate-fade-in"
         onClick={onClose}
       />
 
       {/* Dialog */}
       <div
-        className={`relative w-full ${maxWidthClasses[maxWidth]} bg-white rounded-2xl shadow-xl border border-stone-200 overflow-hidden z-10 animate-scale-up`}
+        className={`relative w-full ${maxWidthClasses[maxWidth]} bg-[#FDFBF7] rounded-[28px] shadow-2xl border border-[#EAE1D3] overflow-hidden z-10 animate-scale-up`}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-stone-100">
-          <h3 className="text-lg font-semibold text-stone-900">{title}</h3>
+        <div className="flex items-center justify-between px-6 py-5 border-b border-[#EAE1D3]">
+          <h3 className="text-lg font-bold text-[#1F1E1D] tracking-tight">{title}</h3>
           <button
             onClick={onClose}
-            className="text-stone-400 hover:text-stone-700 p-1.5 rounded-lg hover:bg-stone-100 transition-colors cursor-pointer"
+            className="text-[#8C827A] hover:text-[#1F1E1D] p-2 rounded-xl hover:bg-[#F3ECE2] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -66,7 +66,7 @@ export const Modal: React.FC<ModalProps> = ({
         <div className="p-6">{children}</div>
 
         {footer && (
-          <div className="flex items-center justify-end gap-3 px-6 py-4 bg-stone-50/50 border-t border-stone-100">
+          <div className="flex items-center justify-end gap-3 px-6 py-4 bg-[#F7F1E7] border-t border-[#EAE1D3]">
             {footer}
           </div>
         )}

@@ -28,7 +28,7 @@ export const CarritoPage: React.FC = () => {
           description="Aún no has agregado ninguna comida o bebida deliciosa. Recorre nuestro catálogo para comenzar."
           actionText="Ver Catálogo"
           onAction={() => navigate('/')}
-          icon={<ShoppingBag className="w-8 h-8 text-amber-600" />}
+          icon={<ShoppingBag className="w-8 h-8 text-[#B84A1C]" />}
         />
       </div>
     );
@@ -46,16 +46,19 @@ export const CarritoPage: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-      <div className="flex items-center justify-between border-b border-stone-200 pb-4">
+      <div className="flex items-center justify-between border-b border-[#EAE1D3] pb-5">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">Tu Carrito</h1>
-          <p className="text-xs sm:text-sm text-stone-500 mt-1">Revisa los productos antes de confirmar tu pedido</p>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#B84A1C] block mb-1">
+            AMBER / ORDER SUMMARY
+          </span>
+          <h1 className="text-2xl sm:text-3xl font-black text-[#1F1E1D] tracking-tight">Tu Carrito</h1>
+          <p className="text-xs sm:text-sm text-[#6E6862] mt-0.5">Revisa tus productos antes de confirmar el pedido</p>
         </div>
         <Button
-          variant="outline"
+          variant="secondary"
           size="sm"
           onClick={vaciar}
-          className="text-stone-500 hover:text-rose-600 hover:border-rose-300"
+          className="text-[#6E6862] hover:text-[#BF3E34] hover:border-rose-300"
         >
           <Trash2 className="w-4 h-4 mr-1.5" />
           Vaciar carrito
@@ -71,9 +74,9 @@ export const CarritoPage: React.FC = () => {
               item.stock_maximo === undefined || item.cantidad < item.stock_maximo;
 
             return (
-              <Card key={item.producto_id} className="p-4 sm:p-5 flex items-center gap-4 bg-white">
+              <Card key={item.producto_id} className="p-4 sm:p-5 flex items-center gap-4 bg-[#FDFBF7] rounded-[26px]">
                 {/* Imagen */}
-                <div className="w-20 h-20 rounded-xl bg-stone-100 overflow-hidden shrink-0 border border-stone-100">
+                <div className="w-20 h-20 rounded-2xl bg-[#F3EDE2] overflow-hidden shrink-0 border border-[#EAE1D3]">
                   {item.imagen_url ? (
                     <img
                       src={item.imagen_url}
@@ -82,37 +85,37 @@ export const CarritoPage: React.FC = () => {
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-2xl">
-                      🍔
+                      🍽️
                     </div>
                   )}
                 </div>
 
                 {/* Info */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-bold text-stone-900 text-sm sm:text-base truncate">
+                  <h4 className="font-bold text-[#1F1E1D] text-sm sm:text-base truncate tracking-tight">
                     {item.nombre}
                   </h4>
-                  <p className="text-xs text-stone-500 mt-0.5">
+                  <p className="text-xs text-[#6E6862] mt-0.5 font-medium">
                     {formatPrice(item.precio_unitario)} c/u
                   </p>
 
                   {/* Controles de cantidad */}
                   <div className="flex items-center gap-3 mt-3">
-                    <div className="flex items-center border border-stone-200 rounded-lg bg-stone-50">
+                    <div className="flex items-center border border-[#DECFC0] rounded-xl bg-[#FAF5ED] shadow-xs">
                       <button
                         onClick={() => cambiarCantidad(item.producto_id, item.cantidad - 1)}
-                        className="p-1.5 text-stone-600 hover:text-stone-900 hover:bg-stone-200/60 rounded-l-lg transition-colors cursor-pointer"
+                        className="p-1.5 text-[#6E6862] hover:text-[#1F1E1D] hover:bg-[#EFE6DA] rounded-l-xl transition-colors cursor-pointer"
                         aria-label="Disminuir cantidad"
                       >
                         <Minus className="w-3.5 h-3.5" />
                       </button>
-                      <span className="w-8 text-center text-xs font-bold text-stone-800">
+                      <span className="w-8 text-center text-xs font-bold text-[#1F1E1D]">
                         {item.cantidad}
                       </span>
                       <button
                         onClick={() => cambiarCantidad(item.producto_id, item.cantidad + 1)}
                         disabled={!puedeAumentar}
-                        className="p-1.5 text-stone-600 hover:text-stone-900 hover:bg-stone-200/60 rounded-r-lg transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                        className="p-1.5 text-[#6E6862] hover:text-[#1F1E1D] hover:bg-[#EFE6DA] rounded-r-xl transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
                         aria-label="Aumentar cantidad"
                       >
                         <Plus className="w-3.5 h-3.5" />
@@ -121,7 +124,7 @@ export const CarritoPage: React.FC = () => {
 
                     <button
                       onClick={() => quitar(item.producto_id)}
-                      className="text-stone-400 hover:text-rose-600 p-1 rounded-md transition-colors cursor-pointer"
+                      className="text-[#8C827A] hover:text-[#BF3E34] p-1.5 rounded-xl hover:bg-rose-50 transition-colors cursor-pointer"
                       title="Eliminar producto"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -131,8 +134,8 @@ export const CarritoPage: React.FC = () => {
 
                 {/* Subtotal */}
                 <div className="text-right shrink-0">
-                  <span className="text-[10px] text-stone-400 block font-medium">Subtotal</span>
-                  <span className="text-base font-bold text-stone-900">
+                  <span className="text-[10px] text-[#8C827A] block font-semibold uppercase tracking-wider">Subtotal</span>
+                  <span className="text-base font-black text-[#B84A1C]">
                     {formatPrice(subtotal)}
                   </span>
                 </div>
@@ -143,29 +146,29 @@ export const CarritoPage: React.FC = () => {
 
         {/* Resumen de Compra */}
         <div className="lg:col-span-1">
-          <Card className="p-6 bg-white space-y-6 sticky top-24">
-            <h3 className="text-lg font-bold text-stone-900 border-b border-stone-100 pb-3">
+          <Card className="p-6 bg-[#FDFBF7] space-y-6 sticky top-28 rounded-[28px] border-[#EAE1D3]">
+            <h3 className="text-lg font-bold text-[#1F1E1D] border-b border-[#EAE1D3] pb-3 tracking-tight">
               Resumen de compra
             </h3>
 
-            <div className="space-y-2.5 text-sm">
-              <div className="flex justify-between text-stone-600">
-                <span>Subtotal de productos</span>
-                <span className="font-semibold text-stone-800">{formatPrice(totalCalculado)}</span>
+            <div className="space-y-3 text-sm">
+              <div className="flex justify-between text-[#6E6862]">
+                <span>Subtotal productos</span>
+                <span className="font-semibold text-[#1F1E1D]">{formatPrice(totalCalculado)}</span>
               </div>
-              <div className="flex justify-between text-stone-600">
+              <div className="flex justify-between text-[#6E6862]">
                 <span>Costo de envío</span>
-                <span className="font-semibold text-emerald-600">¡Gratis!</span>
+                <span className="font-bold text-[#2D6A4F]">¡Gratis!</span>
               </div>
-              <div className="pt-3 border-t border-stone-200 flex justify-between items-baseline">
-                <span className="text-base font-bold text-stone-900">Total a pagar</span>
-                <span className="text-2xl font-black text-amber-700">{formatPrice(totalCalculado)}</span>
+              <div className="pt-3 border-t border-[#EAE1D3] flex justify-between items-baseline">
+                <span className="text-sm font-bold text-[#1F1E1D]">Total final</span>
+                <span className="text-2xl font-black text-[#B84A1C]">{formatPrice(totalCalculado)}</span>
               </div>
             </div>
 
             <Button
               variant="primary"
-              className="w-full py-3.5 text-base font-bold shadow-md"
+              className="w-full py-3.5 text-base font-bold shadow-amber-pill rounded-2xl"
               onClick={handleCheckoutClick}
             >
               Continuar al Checkout
@@ -173,13 +176,13 @@ export const CarritoPage: React.FC = () => {
             </Button>
 
             {!usuario && (
-              <p className="text-[11px] text-center text-amber-700">
+              <p className="text-[11px] text-center text-[#B84A1C] bg-[#FBECE1] p-2.5 rounded-xl font-medium">
                 * Se te solicitará iniciar sesión antes de confirmar la entrega.
               </p>
             )}
 
             <div className="pt-2 text-center">
-              <Link to="/" className="text-xs text-stone-500 hover:text-stone-800 hover:underline">
+              <Link to="/" className="text-xs text-[#8C827A] hover:text-[#1F1E1D] hover:underline font-medium">
                 ← Continuar comprando en el catálogo
               </Link>
             </div>

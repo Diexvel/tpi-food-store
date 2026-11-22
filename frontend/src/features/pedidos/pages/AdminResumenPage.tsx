@@ -23,13 +23,13 @@ interface StatCardProps {
 }
 
 const StatCard: React.FC<StatCardProps> = ({ label, value, icon, colorClass, bgClass, borderClass }) => (
-  <Card className={`p-5 border ${borderClass} ${bgClass}`}>
+  <Card className={`p-6 rounded-[24px] border ${borderClass} ${bgClass} shadow-amber-soft`}>
     <div className="flex items-start justify-between">
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">{label}</p>
-        <p className={`text-3xl font-black ${colorClass}`}>{value}</p>
+        <p className="text-[11px] font-bold uppercase tracking-widest text-[#8C827A] mb-1.5">{label}</p>
+        <p className={`text-3xl font-black ${colorClass} tracking-tight`}>{value}</p>
       </div>
-      <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${colorClass} bg-white/70 shadow-xs`}>
+      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center ${colorClass} bg-[#FDFBF7] shadow-xs border border-[#EAE1D3]`}>
         {icon}
       </div>
     </div>
@@ -71,50 +71,50 @@ export const AdminResumenPage: React.FC = () => {
     {
       label: 'Pendientes',
       value: r.pendientes,
-      icon: <Clock className="w-5 h-5" />,
-      colorClass: 'text-amber-700',
-      bgClass: 'bg-amber-50/60',
-      borderClass: 'border-amber-200',
+      icon: <Clock className="w-5 h-5 text-[#B84A1C]" />,
+      colorClass: 'text-[#B84A1C]',
+      bgClass: 'bg-[#FBECE1]/60',
+      borderClass: 'border-[#F2D7C3]',
     },
     {
       label: 'En Preparación',
       value: r.en_preparacion,
-      icon: <ChefHat className="w-5 h-5" />,
-      colorClass: 'text-blue-700',
-      bgClass: 'bg-blue-50/60',
-      borderClass: 'border-blue-200',
+      icon: <ChefHat className="w-5 h-5 text-[#C07722]" />,
+      colorClass: 'text-[#C07722]',
+      bgClass: 'bg-[#FEF5E7]/60',
+      borderClass: 'border-[#F7E2BD]',
     },
     {
       label: 'Entregados',
       value: r.entregados,
-      icon: <CheckCircle2 className="w-5 h-5" />,
-      colorClass: 'text-emerald-700',
-      bgClass: 'bg-emerald-50/60',
-      borderClass: 'border-emerald-200',
+      icon: <CheckCircle2 className="w-5 h-5 text-[#2D6A4F]" />,
+      colorClass: 'text-[#2D6A4F]',
+      bgClass: 'bg-[#EAF3EB]/60',
+      borderClass: 'border-[#CDE5D1]',
     },
     {
       label: 'Cancelados',
       value: r.cancelados,
-      icon: <XCircle className="w-5 h-5" />,
-      colorClass: 'text-rose-700',
-      bgClass: 'bg-rose-50/60',
-      borderClass: 'border-rose-200',
+      icon: <XCircle className="w-5 h-5 text-[#A63A3A]" />,
+      colorClass: 'text-[#A63A3A]',
+      bgClass: 'bg-[#FBEBEB]/60',
+      borderClass: 'border-[#EFC7C7]',
     },
     {
       label: 'Pedidos Hoy',
       value: r.pedidos_hoy,
-      icon: <Calendar className="w-5 h-5" />,
-      colorClass: 'text-violet-700',
-      bgClass: 'bg-violet-50/60',
-      borderClass: 'border-violet-200',
+      icon: <Calendar className="w-5 h-5 text-[#7B4B94]" />,
+      colorClass: 'text-[#7B4B94]',
+      bgClass: 'bg-[#F5EEF8]/60',
+      borderClass: 'border-[#E7D6EE]',
     },
     {
       label: 'Ingresos Entregados',
       value: `$${r.ingresos_entregados.toLocaleString('es-AR', { maximumFractionDigits: 0 })}`,
-      icon: <DollarSign className="w-5 h-5" />,
-      colorClass: 'text-teal-700',
-      bgClass: 'bg-teal-50/60',
-      borderClass: 'border-teal-200',
+      icon: <DollarSign className="w-5 h-5 text-[#1E6B65]" />,
+      colorClass: 'text-[#1E6B65]',
+      bgClass: 'bg-[#EBF5F4]/60',
+      borderClass: 'border-[#CDE8E5]',
     },
   ];
 

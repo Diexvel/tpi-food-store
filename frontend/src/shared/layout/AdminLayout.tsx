@@ -33,34 +33,36 @@ export const AdminLayout: React.FC = () => {
   };
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-[#FAF5ED] border-r border-[#EAE1D3]">
       {/* Logo */}
-      <div className="px-5 py-5 border-b border-stone-200">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-amber-600 flex items-center justify-center text-white">
+      <div className="px-6 py-6 border-b border-[#EAE1D3]">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-2xl bg-[#B84A1C] flex items-center justify-center text-white shadow-amber-pill">
             <UtensilsCrossed className="w-4 h-4" />
           </div>
           <div>
-            <span className="font-bold text-sm text-stone-900 block">Food Store</span>
-            <span className="text-[10px] text-amber-700 font-semibold uppercase tracking-wider">
-              Panel Admin
+            <span className="font-extrabold text-sm text-[#1F1E1D] block tracking-tight">
+              AMBER <span className="text-[#B84A1C] font-light">/</span> ADMIN
+            </span>
+            <span className="text-[9px] text-[#B84A1C] font-bold uppercase tracking-widest">
+              Control Panel
             </span>
           </div>
         </div>
       </div>
 
       {/* Nav links */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
+      <nav className="flex-1 px-3 py-6 space-y-1.5">
         {NAV_ITEMS.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}
             to={to}
             onClick={() => setSidebarOpen(false)}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+              `flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold transition-all ${
                 isActive
-                  ? 'bg-amber-600 text-white shadow-sm'
-                  : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+                  ? 'bg-[#B84A1C] text-white shadow-amber-pill'
+                  : 'text-[#6E6862] hover:bg-[#EFE6DA] hover:text-[#1F1E1D]'
               }`
             }
           >
@@ -71,23 +73,23 @@ export const AdminLayout: React.FC = () => {
       </nav>
 
       {/* Usuario + botones inferiores */}
-      <div className="px-3 py-4 border-t border-stone-200 space-y-2">
+      <div className="px-4 py-5 border-t border-[#EAE1D3] space-y-2">
         {usuario && (
-          <div className="px-3 py-2 rounded-xl bg-stone-50 border border-stone-200">
-            <p className="text-xs font-bold text-stone-800 truncate">{usuario.full_name}</p>
-            <p className="text-[10px] text-stone-500 truncate">@{usuario.username}</p>
+          <div className="px-4 py-3 rounded-2xl bg-[#FDFBF7] border border-[#EAE1D3] shadow-xs">
+            <p className="text-xs font-bold text-[#1F1E1D] truncate">{usuario.full_name}</p>
+            <p className="text-[10px] text-[#8C827A] truncate font-mono">@{usuario.username}</p>
           </div>
         )}
         <NavLink
           to="/"
-          className="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-stone-500 hover:bg-stone-100 hover:text-stone-900 transition-all"
+          className="flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs font-semibold text-[#6E6862] hover:bg-[#EFE6DA] hover:text-[#1F1E1D] transition-all"
         >
-          <ChevronRight className="w-4 h-4" />
-          Ir al Catálogo
+          <ChevronRight className="w-4 h-4 text-[#B84A1C]" />
+          Ir al Catálogo Público
         </NavLink>
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-rose-600 hover:bg-rose-50 transition-all cursor-pointer"
+          className="w-full flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs font-semibold text-rose-700 hover:bg-rose-50 transition-all cursor-pointer"
         >
           <LogOut className="w-4 h-4" />
           Cerrar Sesión
@@ -97,9 +99,9 @@ export const AdminLayout: React.FC = () => {
   );
 
   return (
-    <div className="flex h-screen bg-stone-100 overflow-hidden">
+    <div className="flex h-screen bg-[#F6F1EA] overflow-hidden text-[#1F1E1D]">
       {/* Sidebar Desktop */}
-      <aside className="hidden md:flex flex-col w-56 bg-white border-r border-stone-200 shrink-0">
+      <aside className="hidden md:flex flex-col w-64 shrink-0">
         <SidebarContent />
       </aside>
 
@@ -107,10 +109,10 @@ export const AdminLayout: React.FC = () => {
       {sidebarOpen && (
         <div className="md:hidden fixed inset-0 z-40 flex">
           <div
-            className="fixed inset-0 bg-stone-900/40 backdrop-blur-xs"
+            className="fixed inset-0 bg-[#1F1E1D]/40 backdrop-blur-xs"
             onClick={() => setSidebarOpen(false)}
           />
-          <aside className="relative w-56 bg-white border-r border-stone-200 z-50 flex flex-col">
+          <aside className="relative w-64 z-50 flex flex-col">
             <SidebarContent />
           </aside>
         </div>
@@ -119,18 +121,18 @@ export const AdminLayout: React.FC = () => {
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Top bar mobile */}
-        <header className="md:hidden flex items-center gap-3 px-4 py-3 bg-white border-b border-stone-200">
+        <header className="md:hidden flex items-center gap-3 px-4 py-3.5 bg-[#FAF5ED] border-b border-[#EAE1D3]">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="p-1.5 rounded-lg hover:bg-stone-100 text-stone-600 cursor-pointer"
+            className="p-2 rounded-xl hover:bg-[#EFE6DA] text-[#6E6862] cursor-pointer"
           >
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-          <span className="font-bold text-stone-900">Panel de Administración</span>
+          <span className="font-bold text-[#1F1E1D] text-sm">Panel de Administración</span>
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-y-auto p-6">
+        <main className="flex-1 overflow-y-auto p-6 md:p-8">
           <Outlet />
         </main>
       </div>

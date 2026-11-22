@@ -18,12 +18,12 @@ export const EstadoVacio: React.FC<EstadoVacioProps> = ({
   icon,
 }) => {
   return (
-    <div className="flex flex-col items-center justify-center text-center p-8 sm:p-12 bg-white rounded-2xl border border-stone-200 shadow-2xs my-4">
-      <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-4">
-        {icon || <PackageOpen className="w-7 h-7" />}
+    <div className="flex flex-col items-center justify-center text-center p-8 sm:p-12 bg-[#FDFBF7] rounded-[28px] border border-[#EAE1D3] shadow-amber-soft my-6">
+      <div className="w-16 h-16 bg-[#FAF3EA] text-[#B84A1C] border border-[#EAE1D3] rounded-3xl flex items-center justify-center mb-4 shadow-xs">
+        {icon || <PackageOpen className="w-8 h-8" />}
       </div>
-      <h3 className="text-base font-semibold text-stone-900 mb-1">{title}</h3>
-      <p className="text-sm text-stone-500 max-w-sm mb-6">{description}</p>
+      <h3 className="text-lg font-bold text-[#1F1E1D] mb-1.5 tracking-tight">{title}</h3>
+      <p className="text-sm text-[#6E6862] max-w-sm mb-6 leading-relaxed">{description}</p>
       {actionText && onAction && (
         <Button variant="primary" onClick={onAction}>
           {actionText}

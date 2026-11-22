@@ -89,18 +89,18 @@ export const MisPedidosPage: React.FC = () => {
           });
 
           return (
-            <Card key={pedido.id} className="p-5 hover:shadow-md transition">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-gray-100 gap-2">
+            <Card key={pedido.id} className="p-6 rounded-[28px] border-[#EAE1D3] shadow-amber-soft bg-[#FDFBF7]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#EAE1D3] gap-2">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-bold text-lg text-gray-900">Pedido #{pedido.id}</span>
+                    <span className="font-black text-lg text-[#1F1E1D]">Pedido #{pedido.id}</span>
                     <BadgeEstado estado={pedido.estado} />
                   </div>
-                  <span className="text-xs text-gray-500">{fecha}</span>
+                  <span className="text-xs text-[#8C827A] mt-0.5 block">{fecha}</span>
                 </div>
 
-                <div className="flex items-center gap-3 self-end sm:self-auto">
-                  <span className="text-xl font-bold text-emerald-600">
+                <div className="flex items-center gap-4 self-end sm:self-auto">
+                  <span className="text-2xl font-black text-[#B84A1C]">
                     ${pedido.total.toFixed(2)}
                   </span>
                   {pedido.estado === 'PENDIENTE' && (
@@ -117,19 +117,19 @@ export const MisPedidosPage: React.FC = () => {
 
               {/* Items del pedido */}
               <div className="mt-4">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#8C827A] mb-2">
                   Productos ({pedido.items.length})
                 </h4>
-                <div className="divide-y divide-gray-100 border border-gray-100 rounded-lg overflow-hidden bg-gray-50">
+                <div className="divide-y divide-[#EAE1D3] border border-[#EAE1D3] rounded-2xl overflow-hidden bg-[#FAF5ED]">
                   {pedido.items.map((item, idx) => (
-                    <div key={idx} className="p-3 flex items-center justify-between text-sm">
+                    <div key={idx} className="p-3.5 flex items-center justify-between text-sm">
                       <div>
-                        <p className="font-medium text-gray-800">{item.nombre_producto}</p>
-                        <p className="text-xs text-gray-500">
+                        <p className="font-semibold text-[#1F1E1D]">{item.nombre_producto}</p>
+                        <p className="text-xs text-[#6E6862]">
                           {item.cantidad} x ${item.precio_unitario.toFixed(2)}
                         </p>
                       </div>
-                      <span className="font-semibold text-gray-700">
+                      <span className="font-bold text-[#1F1E1D]">
                         ${item.subtotal.toFixed(2)}
                       </span>
                     </div>

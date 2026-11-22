@@ -1,7 +1,39 @@
 @import "tailwindcss";
 
 @layer base {
-  body {
-    font-feature-settings: "rlig" 1, "calt" 1;
+  :root {
+    --color-amber-primary: #b84a1c;
+    --color-amber-hover: #a23f15;
+    --color-amber-active: #8d350f;
+    --color-apricot: #e88c4d;
+    --color-apricot-subtle: #f9efe6;
+    --color-ivory: #fcf9f4;
+    --color-ivory-card: #fdfbf7;
+    --color-ivory-border: #ece4d8;
+    --color-canvas: #f6f1ea;
+    --color-ink: #1f1e1d;
+    --color-ink-muted: #6e6862;
+    --color-ink-subtle: #a49c94;
   }
+
+  body {
+    background-color: #f6f1ea;
+    color: #1f1e1d;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Sombras suaves y afelpadas estilo AMBER / INTERFACE */
+.shadow-amber-soft {
+  box-shadow: 0 10px 30px -4px rgba(160, 130, 100, 0.08), 0 2px 8px -1px rgba(160, 130, 100, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.shadow-amber-pill {
+  box-shadow: 0 8px 20px -4px rgba(184, 74, 28, 0.35), 0 2px 6px -1px rgba(184, 74, 28, 0.2);
+}
+
+.shadow-ivory-inset {
+  box-shadow: inset 0 2px 4px rgba(150, 120, 90, 0.05), 0 1px 2px rgba(255, 255, 255, 0.9);
 }

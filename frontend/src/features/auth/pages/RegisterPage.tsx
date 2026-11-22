@@ -57,13 +57,16 @@ export const RegisterPage: React.FC = () => {
 
   return (
     <div className="min-h-[75vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <Card className="max-w-md w-full p-8 shadow-sm border-stone-200">
+      <Card className="max-w-md w-full p-8 sm:p-10 rounded-[32px] shadow-amber-soft border-[#EAE1D3]">
         <div className="text-center mb-8">
-          <div className="w-12 h-12 bg-amber-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-3 shadow-xs">
-            <UtensilsCrossed className="w-6 h-6" />
+          <div className="w-14 h-14 bg-[#B84A1C] rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-amber-pill">
+            <UtensilsCrossed className="w-7 h-7" />
           </div>
-          <h2 className="text-2xl font-bold text-stone-900 tracking-tight">Crear Cuenta</h2>
-          <p className="text-sm text-stone-500 mt-1">Regístrate para realizar pedidos en Food Store</p>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#B84A1C] block mb-1">
+            AMBER / AUTH
+          </span>
+          <h2 className="text-2xl font-black text-[#1F1E1D] tracking-tight">Crear Cuenta</h2>
+          <p className="text-xs text-[#6E6862] mt-1">Regístrate para realizar pedidos en Food Store</p>
         </div>
 
         {errorMsg && (
@@ -202,9 +205,9 @@ export const RegisterPage: React.FC = () => {
           </Button>
         </form>
 
-        <div className="mt-6 pt-6 border-t border-stone-100 text-center text-sm text-stone-600">
+        <div className="mt-8 pt-6 border-t border-[#EAE1D3] text-center text-xs text-[#6E6862]">
           ¿Ya tienes cuenta?{' '}
-          <Link to="/login" className="font-semibold text-amber-700 hover:text-amber-800 hover:underline">
+          <Link to="/login" className="font-bold text-[#B84A1C] hover:underline">
             Ingresa aquí
           </Link>
         </div>
