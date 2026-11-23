@@ -29,11 +29,11 @@ export const Navbar: React.FC = () => {
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-extrabold text-lg text-[#1F1E1D] tracking-tight block leading-tight">
-                  AMBER <span className="text-[#B84A1C] font-light">/</span> FOOD
+                  FOOD Store
                 </span>
               </div>
               <span className="text-[10px] text-[#B84A1C] font-bold uppercase tracking-widest block">
-                A warmer culinary rhythm
+                Un lugar para comer rico y economico
               </span>
             </div>
           </Link>

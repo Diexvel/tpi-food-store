@@ -125,14 +125,7 @@ backend/
    FRONTEND_ORIGIN=http://localhost:5173
    ```
 
-   > **💡 Tip (Levantar PostgreSQL con Docker en un solo comando):**
-   > En la raíz del proyecto se incluye un `docker-compose.yml`:
-   > ```bash
-   > docker compose up -d
-   > ```
-   > Esto iniciará un contenedor PostgreSQL 16 listo en el puerto 5432 con la base `foodstore_db`.
-   >
-   > *(Opcional: Si deseas usar SQLite localmente, simplemente descomenta `DATABASE_URL=sqlite:///./foodstore.db` en el archivo `.env`).*
+   > *(Nota: Asegúrate de tener creada la base de datos `foodstore_db` en tu servidor PostgreSQL local antes de ejecutar el seed. Si deseas usar SQLite localmente para pruebas rápidas, simplemente descomenta `DATABASE_URL=sqlite:///./foodstore.db` en el archivo `.env`).*
 
 5. Inicializar la base de datos y cargar los datos iniciales (Seed):
    ```bash

@@ -11,7 +11,7 @@ export const MainLayout: React.FC = () => {
       </main>
       <footer className="bg-[#FAF4EB] border-t border-[#EAE1D3] py-8 mt-16 text-center text-xs text-[#8C827A]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} AMBER / Food Store. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Food Store. Todos los derechos reservados.</p>
           <p className="text-[#A49C94] uppercase tracking-wider text-[11px] font-semibold">
             Trabajo Práctico Integrador — Programación 4
           </p>

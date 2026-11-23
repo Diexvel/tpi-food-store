@@ -63,35 +63,22 @@ export const CatalogoPage: React.FC = () => {
         <div className="relative z-10 max-w-2xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-[11px] font-bold uppercase tracking-widest text-[#B84A1C] bg-[#FBECE1] border border-[#F2D7C3] px-3 py-1 rounded-full">
-              CUISINE DESIGN MOODBOARD
+              Catalogo de productos
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black text-[#1F1E1D] tracking-tight leading-tight">
-            AMBER <span className="text-[#B84A1C] font-light">/</span> FOOD
+            FOOD Store
           </h1>
           <p className="text-base sm:text-lg text-[#6E6862] mt-3 font-normal leading-relaxed">
-            A warmer culinary rhythm. Hamburguesas artesanales, pizzas napolitanas al horno de barro y postres gourmet preparados con dedicación.
+            Hamburguesas artesanales, pizzas napolitanas al horno de barro y postres gourmet preparados con dedicación.
           </p>
 
-          <div className="flex items-center gap-4 mt-6 text-xs text-[#8C827A] font-medium">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#B84A1C]"></span>
-              Ingredientes Frescos
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#E88C4D]"></span>
-              Elaboración Diaria
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
-              Envío Rápido
-            </span>
-          </div>
+
         </div>
       </div>
 
-      {/* Barra de Filtros y Búsqueda estilo AMBER */}
+      {/* Barra de Filtros y Búsqueda estilo */}
       <div className="space-y-5">
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
           {/* Input de Búsqueda pastilla pillowy */}
@@ -130,11 +117,10 @@ export const CatalogoPage: React.FC = () => {
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           <button
             onClick={() => handleCategoriaClick(undefined)}
-            className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-tight transition-all duration-200 shrink-0 cursor-pointer ${
-              categoriaId === undefined
-                ? 'bg-[#B84A1C] text-white shadow-amber-pill'
-                : 'bg-[#FDFBF7] text-[#6E6862] border border-[#DECFC0] hover:bg-[#F3ECE2] hover:text-[#1F1E1D]'
-            }`}
+            className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-tight transition-all duration-200 shrink-0 cursor-pointer ${categoriaId === undefined
+              ? 'bg-[#B84A1C] text-white shadow-amber-pill'
+              : 'bg-[#FDFBF7] text-[#6E6862] border border-[#DECFC0] hover:bg-[#F3ECE2] hover:text-[#1F1E1D]'
+              }`}
           >
             Todas las comidas
           </button>
@@ -144,11 +130,10 @@ export const CatalogoPage: React.FC = () => {
               <button
                 key={cat.id}
                 onClick={() => handleCategoriaClick(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-tight transition-all duration-200 shrink-0 cursor-pointer ${
-                  isSelected
-                    ? 'bg-[#B84A1C] text-white shadow-amber-pill'
-                    : 'bg-[#FDFBF7] text-[#6E6862] border border-[#DECFC0] hover:bg-[#F3ECE2] hover:text-[#1F1E1D]'
-                }`}
+                className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-tight transition-all duration-200 shrink-0 cursor-pointer ${isSelected
+                  ? 'bg-[#B84A1C] text-white shadow-amber-pill'
+                  : 'bg-[#FDFBF7] text-[#6E6862] border border-[#DECFC0] hover:bg-[#F3ECE2] hover:text-[#1F1E1D]'
+                  }`}
               >
                 {cat.nombre}
               </button>
